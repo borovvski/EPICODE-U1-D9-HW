@@ -69,12 +69,12 @@ console.log("\n");
 console.log("\n------EXERCISE 5------\n");
 
 function strivify(string) {
-  if (string === "strive") {
+  if (string.startsWith("")) {
     return string;
   }
-  return "strive" + " " + string;
+  return "Strive" + " " + string;
 }
-console.log(strivify("harder"));
+console.log(strivify("stri"));
 console.log("\n");
 /* EXERCISE 6
  Write a function called "check3and7" which accepts a positive number as a parameter and checks if it is a multiple of 3 or a multiple of 7.
@@ -110,25 +110,39 @@ console.log("\n");
 */
 console.log("\n------EXERCISE 8------\n");
 
-function upperFirst(mySentence) {
-  let words = mySentence.split(" ");
-  let sentence = "";
-  for (let i = 0; i < words.length; i++) {
-    let capitalLetters = "";
-    let word = words[i];
+// function upperFirst(mySentence) {
+//   let words = mySentence.split(" ");
+//   for (let i = 0; i < words.length; i++) {
+//     words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
+//   }
+//   return words.join(" ");
+// }
+// console.log(upperFirst("hello everybody, tomorrow is friday"));
+// console.log("\n");
 
-    capitalLetters = word.charAt(0).toUpperCase() + word.slice(1) + " ";
-    sentence += capitalLetters;
+function upperFirst(str) {
+  let words = str.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i].split("");
+    word[0] = word[0].toUpperCase();
+    let newWords = word.join("");
+    words[i] = newWords;
   }
-  console.log(sentence);
+  return words.join(" ");
 }
 console.log(upperFirst("hello everybody, tomorrow is friday"));
-console.log("\n");
 /* EXERCISE 9
  Write a function called "cutString" which creates a new string without the first and last character of a given string passed as a parameter.
 */
-console.log("\n------EXERCISE 1------\n");
-/* WRITE YOUR ANSWER HERE */
+console.log("\n------EXERCISE 9------\n");
+function cutString(str) {
+  let arrayStr = str.split("");
+  arrayStr.shift();
+  arrayStr.pop();
+
+  return arrayStr.join("");
+}
+console.log(cutString("Everybody"));
 console.log("\n");
 /* EXERCISE 10
  Write a function called "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10.
